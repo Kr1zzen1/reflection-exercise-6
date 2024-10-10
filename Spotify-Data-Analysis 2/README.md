@@ -1,1 +1,2 @@
 # Spotify-Data-Analysis
+The code and analysis for a project that pulls data from the Spotify music platform and analyzes it using the Spotify Web API are available in this repository. The project's main objective is to collect information on musicians, songs, and genres in order to identify patterns and insights. This analysis was done as a portion of a bigger group effort that was finished for a class project.
