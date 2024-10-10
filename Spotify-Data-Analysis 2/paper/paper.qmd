@@ -1,0 +1,47 @@
+---
+title: "Reflection exercise 6"
+author: "Jierui Zhan"
+thanks: "Code and data are available at: [https://github.com/Kr1zzen1/reflection-exercise-6.git]"
+date: 2024.10.10
+date-format: long
+format: pdf
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+library(here)
+library(tidyverse)
+options(scipen=999)
+```
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+radiohead  <- readRDS(here("data","00-raw_data", "radiohead.rds"))
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| echo:    false
+radiohead <- as_tibble(radiohead)
+
+radiohead |>
+  mutate(album_release_date = ymd(album_release_date)) |>
+  ggplot(aes(
+    x = album_release_date,
+    y = duration_ms,
+    group = album_release_date
+  )) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, width = 0.3, height = 0) +
+  theme_minimal() +
+  labs(
+    x = "Album release date",
+    y = "Duration of song (ms)"
+  )
+```
